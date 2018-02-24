@@ -22,7 +22,7 @@ export class DogListComponent implements OnInit {
     this.dogService.getDogBreeds()
         .subscribe(dogs => {
           console.log(Object.keys(dogs.message))
-          this.dogBreeds = Object.keys(dogs.message);
+          this.dogBreeds = Object.keys(dogs.message)
         })
   }
 
