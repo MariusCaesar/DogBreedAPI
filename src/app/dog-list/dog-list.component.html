@@ -1,10 +1,10 @@
 
-    <!-- <a routerLink="/detail/{{hero.id}}">
-    </a> -->
-<div class="row" *ngFor="let dogbreed of dogBreeds">
+<app-dog-list-item [breed]="selectedBreed"></app-dog-list-item>
+
+<div class="row" >
   <div class="col-sm-6">
-    <ul class="card">
-      <li class="card-body">
+    <ul class="">
+      <li class="btn btn-light" *ngFor="let dogbreed of dogBreeds" (click)="onSelect(dogbreed)">
         {{ dogbreed }}
       </li>
     </ul>

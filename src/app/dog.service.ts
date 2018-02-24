@@ -6,14 +6,18 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class DogService {
-  private dogBreedsUrl = 'https://dog.ceo/api/breeds/list/all';
-  private httpOptions = {
-  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-  };
+  private dogBreedsUrl = 'https://dog.ceo/api/breeds/list';
+
   constructor(
     private http: HttpClient
   ) { }
 
   getDogBreeds() {
-   return this.http.get(this.dogBreedsUrl);
+   return this.http.get<DogAPIResponse>(this.dogBreedsUrl);
+  }
+}
+
+interface DogAPIResponse {
+  success: string;
+  message: Array<string>;
 }

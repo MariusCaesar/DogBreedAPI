@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DogService } from '../dog.service';
-import 'rxjs/add/operator/map';
+
+
 @Component({
   selector: 'app-dog-list',
   templateUrl: './dog-list.component.html',
@@ -9,6 +10,7 @@ import 'rxjs/add/operator/map';
 export class DogListComponent implements OnInit {
 
   public dogBreeds: string[] = [];
+  selectedBreed;
 
   constructor(
     private dogService: DogService
@@ -18,13 +20,19 @@ export class DogListComponent implements OnInit {
     this.getDogBreeds();
   }
 
-  getDogBreeds(){
+  getDogBreeds() {
     this.dogService.getDogBreeds()
         .subscribe(dogs => {
-          console.log(Object.keys(dogs.message))
-          this.dogBreeds = Object.keys(dogs.message)
-        })
+          this.dogBreeds = dogs['message'];
+        }, (Error) => {
+          console.log(Error);
+      })
   }
+
+  onSelect(dog): void {
+    this.selectedBreed = dog;
+  }
+
 
 
 

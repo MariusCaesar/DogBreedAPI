@@ -7,6 +7,7 @@ import { DogListComponent } from './dog-list/dog-list.component';
 
 import { DogService } from './dog.service';
 import { DogListItemComponent } from './dog-list-item/dog-list-item.component';
+import { AppRoutingModule } from './/app-routing.module';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { DogListItemComponent } from './dog-list-item/dog-list-item.component';
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    AppRoutingModule
   ],
   providers: [DogService],
   bootstrap: [AppComponent]
