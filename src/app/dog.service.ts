@@ -1,12 +1,11 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
-import { of } from 'rxjs/observable/of';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import 'rxjs/add/operator/map';
+
 
 @Injectable()
 export class DogService {
   private dogBreedsUrl = 'https://dog.ceo/api/breeds/list';
+  private dogBreedImageUrl = 'https://dog.ceo/api/breed/hound/images';
 
   constructor(
     private http: HttpClient
@@ -14,6 +13,13 @@ export class DogService {
 
   getDogBreeds() {
    return this.http.get<DogAPIResponse>(this.dogBreedsUrl);
+  }
+
+  getDogBreedImages() {
+    return this.http.get<DogAPIResponse>(this.dogBreedImageUrl)
+               .subscribe(data => {
+                 console.log(data.message);
+               })
   }
 }
 
