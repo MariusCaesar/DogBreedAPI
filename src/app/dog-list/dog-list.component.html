@@ -1,11 +1,11 @@
 
-<app-dog-list-item [breed]="selectedBreed"></app-dog-list-item>
-
 <div class="row" >
   <div class="col-sm-6">
     <ul class="">
       <li class="btn btn-light" *ngFor="let dogbreed of dogBreeds" (click)="onSelect(dogbreed)">
-        {{ dogbreed }}
+        <a routerLink="/details/{{dogbreed}}">
+          {{ dogbreed }}
+        </a>
       </li>
     </ul>
   </div>

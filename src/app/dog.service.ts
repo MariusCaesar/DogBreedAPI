@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 
 
 @Injectable()
 export class DogService {
   private dogBreedsUrl = 'https://dog.ceo/api/breeds/list';
-  private dogBreedImageUrl = 'https://dog.ceo/api/breed/hound/images';
+  private dogBreedImageUrl: string;
 
   constructor(
     private http: HttpClient
@@ -15,11 +15,13 @@ export class DogService {
    return this.http.get<DogAPIResponse>(this.dogBreedsUrl);
   }
 
-  getDogBreedImages() {
-    return this.http.get<DogAPIResponse>(this.dogBreedImageUrl)
-               .subscribe(data => {
-                 console.log(data.message);
-               })
+  private getDogBreedImages(dogbreed) {
+    return this.http.get<DogAPIResponse>(this.dogBreedImageUrl);
+  }
+
+  setDogBreedUrl(breed: string) {
+    this.dogBreedImageUrl = `https://dog.ceo/api/breed/${breed}/images/random`;
+    return this.getDogBreedImages(this.dogBreedImageUrl);
   }
 }
 

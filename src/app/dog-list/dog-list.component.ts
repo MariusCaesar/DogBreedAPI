@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { DogService } from '../dog.service';
 import { HttpErrorResponse } from '@angular/common/http';
 
@@ -11,7 +11,6 @@ import { HttpErrorResponse } from '@angular/common/http';
 export class DogListComponent implements OnInit {
 
   public dogBreeds: string[] = [];
-  public selectedBreed;
 
   constructor(
     private dogService: DogService
@@ -19,7 +18,6 @@ export class DogListComponent implements OnInit {
 
   ngOnInit() {
     this.getDogBreeds();
-    this.dogService.getDogBreedImages()
   }
 
   getDogBreeds() {
@@ -34,11 +32,6 @@ export class DogListComponent implements OnInit {
           }
       })
   }
-
-  onSelect(breed): void {
-    this.selectedBreed = breed;
-  }
-
 
 
 
