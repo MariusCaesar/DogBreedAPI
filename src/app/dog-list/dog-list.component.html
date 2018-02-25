@@ -1,12 +1,14 @@
 
-<div class="row" >
-  <div class="col-sm-6">
-    <ul class="">
-      <li class="btn btn-light" *ngFor="let dogbreed of dogBreeds" (click)="onSelect(dogbreed)">
-        <a routerLink="/details/{{dogbreed}}">
-          {{ dogbreed }}
-        </a>
-      </li>
-    </ul>
+<div class="container">
+  <div class="row" >
+    <div class="col-4" *ngFor="let dogbreed of dogBreeds">
+      <a routerLink="/details/{{dogbreed}}">
+        <div class="card">
+          <div class="card-body">
+              {{ dogbreed }}
+          </div>
+       </div>
+     </a>
+    </div>
   </div>
 </div>
