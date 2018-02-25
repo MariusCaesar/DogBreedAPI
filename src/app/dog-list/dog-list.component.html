@@ -1,14 +1,24 @@
 
+
+
 <div class="container">
+
+  <form>
+    <label>Search Dog breed:</label>
+    <input type="text" [(ngModel)]="term" name="term">
+  </form>
+
+
   <div class="row" >
-    <div class="col-4" *ngFor="let dogbreed of dogBreeds">
+    <div class="col-4" *ngFor="let dogbreed of dogBreeds | searchPipe:term">
       <a routerLink="/details/{{dogbreed}}">
         <div class="card">
           <div class="card-body">
-              {{ dogbreed }}
+            {{ dogbreed }}
           </div>
-       </div>
-     </a>
+        </div>
+      </a>
     </div>
   </div>
+
 </div>

@@ -23,8 +23,7 @@ export class DogListItemComponent implements OnInit {
   }
 
   getDogBreed(): void {
-    let dogBreed = this.route.snapshot.paramMap.get('name');
-    this.breed = dogBreed;
+    this.breed = this.route.snapshot.paramMap.get('name');
     this.dogService.getDogBreedImages(this.breed)
         .subscribe(data => this.breedPhoto = data.message);
   }

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
-import { catchError, map, tap } from 'rxjs/operators';
+import { catchError, map } from 'rxjs/operators';
 import { of } from 'rxjs/observable/of';
 
 
@@ -39,16 +39,6 @@ export class DogService {
     }
   }
 
-  searchDogs(term: string): Observable<any>{
-    if (!term.trim()) {
-        return of([]);
-    }
-
-    return this.http.get<DogAPIResponse>(this.dogBreedsUrl)
-               .pipe(
-                 catchError(this.handleError('SearchTerm'))
-               )
-  }
 
 }
 
