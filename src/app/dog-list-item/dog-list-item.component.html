@@ -1,5 +1,7 @@
 <div *ngIf="breed">
   <h2>{{ breed | uppercase }} Details</h2>
-  <img src="{{breedPhoto}}" alt="{{breed}}" width="300px" height="300px">
+  <div *ngIf="breedPhoto">
+    <img src="{{breedPhoto}}" alt="{{breed}}" width="300px" height="300px">
+  </div>
 </div>
 <button (click)="goBack()">go back</button>

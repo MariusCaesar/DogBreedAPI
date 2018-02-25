@@ -24,13 +24,7 @@ export class DogListComponent implements OnInit {
     this.dogService.getDogBreeds()
         .subscribe(dogs => {
           this.dogBreeds = dogs.message;
-        }, (err: HttpErrorResponse) => {
-          if (err.error instanceof Error) {
-              console.log("Client-side error occured!");
-          } else {
-            console.log("Server-side error occured!");
-          }
-      })
+    })
   }
 
 

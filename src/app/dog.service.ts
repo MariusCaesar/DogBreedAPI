@@ -15,14 +15,11 @@ export class DogService {
    return this.http.get<DogAPIResponse>(this.dogBreedsUrl);
   }
 
-  private getDogBreedImages(dogbreed) {
+   getDogBreedImages(breed: string) {
+    this.dogBreedImageUrl = `https://dog.ceo/api/breed/${breed}/images/random`;
     return this.http.get<DogAPIResponse>(this.dogBreedImageUrl);
   }
 
-  setDogBreedUrl(breed: string) {
-    this.dogBreedImageUrl = `https://dog.ceo/api/breed/${breed}/images/random`;
-    return this.getDogBreedImages(this.dogBreedImageUrl);
-  }
 }
 
 interface DogAPIResponse {
