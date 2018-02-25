@@ -1,17 +1,19 @@
 
 
 
-<div class="container">
+<div class="container" role="Dog breed list and search form">
 
-  <form>
-    <label>Search Dog breed:</label>
-    <input type="text" [(ngModel)]="term" name="term">
-  </form>
+  <div class="row" role="Search form">
+    <form>
+      <label role="Search box">Search Dog breed:</label>
+      <input type="text" [(ngModel)]="term" name="term" role="textbox" contenteditable="true">
+    </form>
+  </div>
 
 
-  <div class="row" >
-    <div class="col-4" *ngFor="let dogbreed of dogBreeds | searchPipe:term">
-      <a routerLink="/details/{{dogbreed}}">
+  <div class="row" role="Dog breed list">
+    <div class="col-4" *ngFor="let dogbreed of dogBreeds | searchPipe:term" tabindex="0">
+      <a routerLink="/details/{{dogbreed}}" role="link">
         <div class="card">
           <div class="card-body">
             {{ dogbreed }}
