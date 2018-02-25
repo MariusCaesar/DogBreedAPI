@@ -1,7 +1,12 @@
-<div *ngIf="breed" role="Dog breed details">
-  <h2 title="{{breed}} Details">{{ breed | uppercase }} Details</h2>
-  <div *ngIf="breedPhoto" role="Dog breed photo">
-    <img src="{{breedPhoto}}" alt="{{breed}}" width="300px" height="300px">
+<div class="row" *ngIf="breed" role="Dog breed details">
+  <div class="col-md-4">
+    <div class="thumbnail" role="Dog breed photo">
+        <img src="{{breedPhoto}}" alt="{{breed}}" style="width:100%">
+        <div class="caption" role="caption">
+          <h2>{{ breed | uppercase }} Details</h2>
+        </div>
+    </div>
   </div>
 </div>
+
 <button (click)="goBack()" class="btn btn-dark" role="Go back">Go back</button>
