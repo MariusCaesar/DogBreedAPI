@@ -21,8 +21,11 @@ export class DogListComponent implements OnInit {
   }
 
   getDogBreeds() {
+    // utilise service to get dog breed list
     this.dogService.getDogBreeds()
         .subscribe(dogs => {
+          // assign result to comp member
+          // to iterate over in template
           this.dogBreeds = dogs.message;
     })
   }

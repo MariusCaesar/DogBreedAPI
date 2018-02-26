@@ -15,17 +15,22 @@ export class DogService {
   ) { }
 
   getDogBreeds(): Observable<any>{
+    // get our dog breeds from remote api
    return this.http.get<DogAPIResponse>(this.dogBreedsUrl)
               .pipe(
+                // catch if any errors
                 catchError(this.handleError('DogBreeds', []))
               );
 
   }
 
    getDogBreedImages(breed: string): Observable<any> {
+     // set dogbreed imgUrl to retrive
     this.dogBreedImageUrl = `https://dog.ceo/api/breed/${breed}/images/random`;
+     // get dogbreed img
     return this.http.get<DogAPIResponse>(this.dogBreedImageUrl)
                .pipe(
+                 // catch if any errors
                  catchError(this.handleError('DogBreedImages', []))
                );
   }
@@ -35,7 +40,7 @@ export class DogService {
       //log error to the console
       console.log(`${operation} failed: ${error.message}`);
 
-      return of(result as T)
+      return of(result as T);
     }
   }
 

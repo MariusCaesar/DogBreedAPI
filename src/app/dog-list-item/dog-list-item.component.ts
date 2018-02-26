@@ -23,7 +23,9 @@ export class DogListItemComponent implements OnInit {
   }
 
   getDogBreed(): void {
+    // get name param from ActivatedRoute
     this.breed = this.route.snapshot.paramMap.get('name');
+    // get the dog breed photo
     this.dogService.getDogBreedImages(this.breed)
         .subscribe(data => this.breedPhoto = data.message);
   }
